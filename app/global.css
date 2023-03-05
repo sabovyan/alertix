@@ -1,0 +1,36 @@
+:root {
+    color-scheme: light dark;
+  }
+
+html {
+    color: rgb(55, 53, 47);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-block: 0
+}
+
+
+a {
+    color: inherit;
+}
+
+button {
+    background: transparent;
+    border-width: 1px;
+    cursor: pointer;
+    border: none;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    html {
+        color: rgb(247, 243, 234);
+    }
+}
+
