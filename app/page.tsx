@@ -1,6 +1,6 @@
 import { NotionPageCard } from '@/components/NotionPage/NotionPageCard';
 import { DatabasePagesRequest } from '@/services/notion';
-import { fetcher } from '@/safe-path/client';
+import { fetcher } from '@/safe-req/client';
 
 export default async function App() {
   const databasePagesResponse = await fetcher('databasepages');

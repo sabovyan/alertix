@@ -1,6 +1,5 @@
-import { NotificationButton } from '../../../../01prev example/components/NotificationButton/NotificationButton';
-import { getTitle } from '../../../../01prev example/helpers/notion.helper';
-import { NotionPagesRequest } from '../../../services/notion';
+import { getTitle } from '@/helpers/notion.helper';
+import { NotionPagesRequest } from '@/services/notion';
 
 type PageProps<Params> = {
   params: Params;
