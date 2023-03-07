@@ -1,8 +1,10 @@
 import { handleServer } from '@/safe-req/server';
 import { NextResponse } from 'next/server';
 
-export async function POST(req: Request) {
-  const result = await handleServer(req);
+export type APIContext = { params: { path: string } };
+
+export async function POST(req: Request, { params }: APIContext) {
+  const result = await handleServer(req, params);
 
   return NextResponse.json(result);
 }

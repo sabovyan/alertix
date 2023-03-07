@@ -1,4 +1,5 @@
 import { getTitle } from '@/helpers/notion.helper';
+import { fetcher } from '@/safe-req/client';
 import { NotionPagesRequest } from '@/services/notion';
 
 type PageProps<Params> = {
@@ -12,7 +13,11 @@ type TaskProps = PageProps<{
 export default async function Task(props: TaskProps) {
   const { id } = props.params;
 
-  const response = await fetch(`http://localhost:3000/api/notion/pages/${id}`);
+  const response = await fetcher('getNotionPageById', {
+    body: JSON.stringify({
+      id,
+    }),
+  });
 
   if (!response.ok) {
     throw new Error('SHIT HAPPENS');

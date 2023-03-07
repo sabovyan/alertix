@@ -1,8 +1,9 @@
-import { getPath, isPathRegistered } from './helper';
+import { APIContext } from '@/app/api/[path]/route';
+import { isPathRegistered } from './helper';
 import { PathMapper } from './main';
 
-export async function handleServer(req: Request) {
-  const path = getPath(req);
+export async function handleServer(req: Request, params: APIContext['params']) {
+  const path = params.path;
 
   if (!isPathRegistered(path)) {
     throw new Error('path not found');
@@ -10,7 +11,7 @@ export async function handleServer(req: Request) {
 
   const act = PathMapper[path];
 
-  const result = await act();
+  const result = await act(req);
 
   return result;
 }

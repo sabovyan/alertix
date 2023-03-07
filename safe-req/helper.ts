@@ -1,16 +1,16 @@
 import { Path, PathMapper } from './main';
 
-export function getPath(req: Request) {
-  const { pathname } = new URL(req.url);
+// export function getPath(req: Request) {
+//   const { pathname } = new URL(req.url);
 
-  const currentDirectory = '/api/';
+//   const currentDirectory = '/api/';
 
-  const params = pathname.split(currentDirectory);
+//   const params = pathname.split(currentDirectory);
 
-  const [_, path] = params;
+//   const [_, path] = params;
 
-  return path;
-}
+//   return path;
+// }
 
 export function isPathRegistered(value: string): value is Path {
   const paths = Object.keys(PathMapper);
