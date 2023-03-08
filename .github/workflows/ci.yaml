@@ -6,9 +6,9 @@ on:
   pull_request:
     branches: [main, develop]
 
-# env:
-# NOTION_KEY: secret_kW3Sev2HVtcGuYGvHiy7rfKWbCOTvkk0cJX6EYO7lnd
-# NOTION_DATABASE_ID: 01b465d56bed4f918111c305c53611e1
+env:
+  NOTION_KEY: ${{secrets.NOTION_KEY}}
+  NOTION_DATABASE_ID: ${{secrets.NOTION_DATABASE_ID}}
 
 jobs:
   ci:
