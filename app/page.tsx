@@ -1,8 +1,16 @@
 import { NotionPageCard } from '@/components/NotionPage/NotionPageCard';
-import { getPagesByDataBaseId } from '@/services/notion';
+import { DatabasePagesRequest } from '@/services/notion';
+import { fetcher } from '@/safe-req/client';
 
-export default async function Home() {
-  const pages = await getPagesByDataBaseId();
+export default async function App() {
+  const databasePagesResponse = await fetcher('databasepages');
+
+  if (!databasePagesResponse.ok) {
+    // todo not tested
+    throw new Error('something is nothing');
+  }
+
+  const pages = (await databasePagesResponse.json()) as DatabasePagesRequest;
 
   return (
     <div

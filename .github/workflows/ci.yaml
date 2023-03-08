@@ -6,52 +6,22 @@ on:
   pull_request:
     branches: [main, develop]
 
-env:
-  NOTION_KEY: ${{secrets.NOTION_KEY}}
-  NOTION_DATABASE_ID: ${{secrets.NOTION_DATABASE_ID}}
-
 jobs:
-  ci:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install Node.js
+      - uses: actions/checkout@v3
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: "16.x"
 
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 7
-          run_install: false
+      - name: lint the rules
+        run: npm run lint
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: type checking
+        run: npm run types
 
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install packages
-        run: pnpm install
-
-      - name: Check Lint
-        run: pnpm lint
-
-      - name: Check Types
-        run: pnpm types
-
-      - name: Check Build
-        run: pnpm build
+      - name: check build status
+        run: npm run build

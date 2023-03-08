@@ -13,7 +13,8 @@ function ModalMain({ dialogRef }: ModalMainProps) {
     } else if (Notification.permission === 'granted') {
       // Check whether notification permissions have already been granted;
       // if so, create a notification
-      // const notification = new Notification('Hi there!');
+      const notification = new Notification('Hi there!');
+
       // …
     }
 
