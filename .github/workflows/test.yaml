@@ -17,3 +17,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: env check
+        run: echo $NOTION_KEY && echo $NOTION_DATABASE_ID
