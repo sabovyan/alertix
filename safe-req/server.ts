@@ -1,6 +1,7 @@
-import { APIContext } from '@/app/api/[path]/route';
 import { isPathRegistered } from './helper';
 import { PathMapper } from './main';
+
+type APIContext = any;
 
 export async function handleServer(req: Request, params: APIContext['params']) {
   const path = params.path;
