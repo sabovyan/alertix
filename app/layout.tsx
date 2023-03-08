@@ -2,8 +2,18 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 
 import { Nav } from '@/components/Nav/Nav';
+// import { ApplicationStatusNotifier } from '@/components/ApplicationStatusNotifier';
 
 import './global.css';
+
+const title = 'Next.js';
+
+export const metadata: Metadata = {
+  title,
+  colorScheme: 'light dark',
+  authors: [{ name: 'Sargis Abovyan', url: 'https://github.com/sabovyan' }],
+  description: `${title} connects to notion database and create daily notifications based on them`,
+};
 
 export default function RootLayout({
   children,
@@ -13,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {/* <ApplicationStatusNotifier /> */}
         <main>
           <aside>
             <Nav />
@@ -24,12 +35,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-const title = 'Next.js';
-
-export const metadata: Metadata = {
-  title,
-  colorScheme: 'light dark',
-  authors: [{ name: 'Sargis Abovyan', url: 'https://github.com/sabovyan' }],
-  description: `${title} connects to notion database and create daily notifications based on them`,
-};
