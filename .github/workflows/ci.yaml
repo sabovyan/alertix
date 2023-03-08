@@ -44,17 +44,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-
-      - name: install packages
+      - name: Install packages
         run: pnpm install
 
-      - name: lint the rules
-        run: pnpm run lint
+      - name: Check Lint
+        run: pnpm lint
 
-      - name: type checking
-        run: pnpm run types
+      - name: Check Types
+        run: pnpm types
 
-      - name: check build status
-        run: pnpm run build
+      - name: Check Build
+        run: pnpm build
