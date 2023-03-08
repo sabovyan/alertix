@@ -1,0 +1,19 @@
+name: TEST
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+env:
+  NOTION_KEY: ${{secrets.NOTION_KEY}}
+  NOTION_DATABASE_ID: ${{secrets.NOTION_DATABASE_ID}}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
