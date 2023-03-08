@@ -13,15 +13,17 @@ export default async function App() {
   const pages = (await databasePagesResponse.json()) as DatabasePagesRequest;
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: '1em',
-      }}
-    >
-      {pages.results.map((page) => {
-        return <NotionPageCard key={page.id} page={page} />;
-      })}
-    </div>
+    <>
+      <div
+        style={{
+          display: 'flex',
+          gap: '1em',
+        }}
+      >
+        {pages.results.map((page) => {
+          return <NotionPageCard key={page.id} page={page} />;
+        })}
+      </div>
+    </>
   );
 }
