@@ -15,7 +15,13 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "12.x"
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+          node-version: "16.x"
+
+      - name: lint the rules
+        run: npm run lint
+
+      - name: type checking
+        run: npm run types
+
+      - name: check build status
+        run: npm run build
