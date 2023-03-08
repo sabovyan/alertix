@@ -1,7 +1,10 @@
 import { Client } from '@notionhq/client';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
-export const notion = new Client({ auth: process.env.NOTION_KEY });
+export const notion = new Client({
+  auth: process.env.NOTION_KEY,
+  fetch: fetch,
+});
 const database_id = process.env.NOTION_DATABASE_ID;
 
 export async function getPagesByDataBaseId() {
