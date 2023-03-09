@@ -34,6 +34,14 @@ export function ApplicationStatusNotifier() {
               );
             });
           }
+
+          if (permission === 'granted') {
+            const nextNotification = notifications.filter(
+              (not) => not.id !== id
+            );
+
+            setNotification(nextNotification);
+          }
         },
       },
     };
