@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 
 import { Nav } from '@/components/Nav/Nav';
-// import { ApplicationStatusNotifier } from '@/components/ApplicationStatusNotifier';
+import { ApplicationStatusNotifier } from '@/components/ApplicationStatusNotifier';
 
 import './global.css';
 
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* <ApplicationStatusNotifier /> */}
+        <ApplicationStatusNotifier />
         <main>
           <aside>
             <Nav />
