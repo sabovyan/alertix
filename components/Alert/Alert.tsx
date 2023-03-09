@@ -24,7 +24,6 @@ export function Alert({ content, id, action }: AlertProps) {
       }}
     >
       <span>{content}</span>
-
       <div style={{ display: 'flex', gap: '1em' }}>
         {action ? (
           <button onClick={action.handler(id)} style={{ border: '1px solid' }}>
