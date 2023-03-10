@@ -38,6 +38,7 @@ export function NotionPageCard({ page }: Props) {
           flexWrap: 'wrap',
           gap: '1rem',
           marginBlockEnd: '1em',
+          width: '100%',
         }}
       >
         <Link href={`task/${page.id}`}>

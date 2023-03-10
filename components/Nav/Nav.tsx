@@ -9,7 +9,7 @@ export function Nav() {
         alignItems: 'center',
       }}
     >
-      <h2>app name</h2>
+      <h2>Alertix</h2>
 
       <ul style={{ listStyle: 'none' }}>
         <NavMessagesItem />

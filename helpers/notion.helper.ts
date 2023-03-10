@@ -26,15 +26,15 @@ export const getTitle = (prop: PropertyValue) => {
     : null;
 };
 
-export const notionColors: { [key: string]: string } = {
-  default: '#91918e',
-  gray: '#e3e2e0',
-  brown: '#edc1ae',
-  orange: '#fadec9',
-  yellow: '#fdecc8',
-  green: '#dbeddb',
-  blue: '#5b97bd',
-  purple: '#e8deee',
-  pink: '#f5e0e9',
-  red: '#ffe2dd',
+export const notionColors = {
+  default: 'var(--default)',
+  gray: 'var(--gray)',
+  brown: 'var(--brown)',
+  orange: 'var(--orange)',
+  yellow: 'var(--yellow)',
+  green: 'var(--green)',
+  blue: 'var(--blue)',
+  purple: 'var(--purple)',
+  pink: 'var(--pink)',
+  red: 'var(--red)',
 };

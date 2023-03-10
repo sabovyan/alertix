@@ -1,9 +1,26 @@
 :root {
     color-scheme: light dark;
+
+    --foreground-color: rgb(55, 53, 47)
+
+    --default: #91918e;
+    --gray: #e3e2e0;
+    --brown: #edc1ae;
+    --orange: #fadec9;
+    --yellow: #fdecc8;
+    --green: #dbeddb;
+    --blue: #5b97bd;
+    --purple: #e8deee;
+    --pink: #f5e0e9;
+    --red: #ffe2dd;
   }
 
 html {
-    color: rgb(55, 53, 47);
+    color: var(--foreground-color);
+}
+
+svg {
+    fill: var(--foreground-color);
 }
 
 body {
@@ -29,8 +46,20 @@ button {
 
 
 @media (prefers-color-scheme: dark) {
-    html {
-        color: rgb(247, 243, 234);
-    }
+:root {
+
+    --foreground-color: rgb(247, 243, 234);
+
+    --default: #91918e;
+    --gray: #e3e2e0;
+    --brown: #b88e7b;
+    --orange: #fadec9;
+    --yellow: #dec186;
+    --green: #9cb89c;
+    --blue: #5b97bd;
+    --purple: #b696c9;
+    --pink: #c28ea5;
+    --red: #d99d92;
+  }
 }
 
