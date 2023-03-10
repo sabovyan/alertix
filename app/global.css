@@ -1,7 +1,7 @@
 :root {
     color-scheme: light dark;
 
-    --foreground-color: rgb(55, 53, 47)
+    --foreground-color: rgb(55, 53, 47);
 
     --default: #91918e;
     --gray: #e3e2e0;
