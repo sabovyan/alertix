@@ -1,31 +1,65 @@
 {
   "root": true,
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": [
-      "./tsconfig.json"
-    ]
-  },
   "extends": [
     "prettier",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
     "next/core-web-vitals"
   ],
   "plugins": [
-    "prettier",
-    "@typescript-eslint"
+    "prettier"
   ],
   "rules": {
     "@next/next/no-html-link-for-pages": "off",
     "prettier/prettier": "error",
     "no-console": "warn",
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      {
-        "varsIgnorePattern": "^_$"
+    "no-unused-vars": "error"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
+      "parserOptions": {
+        "project": [
+          "./tsconfig.json"
+        ]
+      },
+      "extends": [
+        "prettier",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "next/core-web-vitals"
+      ],
+      "plugins": [
+        "prettier",
+        "@typescript-eslint"
+      ],
+      "rules": {
+        "@next/next/no-html-link-for-pages": "off",
+        "prettier/prettier": "error",
+        "no-console": "warn",
+        "no-unused-vars": "off",
+        "@typescript-eslint/ban-types": "error",
+        "@typescript-eslint/no-duplicate-enum-values": "error",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-non-null-assertion": "error",
+        "@typescript-eslint/no-for-in-array": "error",
+        "@typescript-eslint/no-misused-promises": "error",
+        "@typescript-eslint/no-unnecessary-condition": "error",
+        "@typescript-eslint/prefer-as-const": "error",
+        "@typescript-eslint/prefer-enum-initializers": "warn",
+        "@typescript-eslint/consistent-type-definitions": [
+          "error",
+          "type"
+        ],
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          {
+            "varsIgnorePattern": "^_$"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 }
