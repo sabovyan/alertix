@@ -2,16 +2,10 @@ import { MessagesIcon } from '../Icons/Message';
 
 export function Nav() {
   return (
-    <nav
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      }}
-    >
+    <nav className="flex justify-between">
       <h2>Alertix</h2>
 
-      <ul style={{ listStyle: 'none' }}>
+      <ul>
         <NavMessagesItem />
       </ul>
     </nav>
@@ -20,7 +14,7 @@ export function Nav() {
 
 export function NavMessagesItem() {
   return (
-    <li style={{ display: 'flex', gap: '0.5em', alignItems: 'cne' }}>
+    <li className="flex gap-2">
       <MessagesIcon />
       <span>messages</span>
     </li>

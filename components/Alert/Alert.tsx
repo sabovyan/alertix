@@ -1,5 +1,4 @@
 import { MouseEventHandler, ReactNode } from 'react';
-import { notionColors } from '@/helpers/notion.helper';
 
 export type AlertAction = {
   title: string;
@@ -14,19 +13,11 @@ export type AlertProps = {
 
 export function Alert({ content, id, action }: AlertProps) {
   return (
-    <div
-      style={{
-        background: notionColors.yellow,
-        display: 'flex',
-        justifyContent: 'space-between',
-        padding: '0.5em',
-        marginBlockEnd: '0.5em',
-      }}
-    >
+    <div className="flex justify-between p-2 mb-2">
       <span>{content}</span>
-      <div style={{ display: 'flex', gap: '1em' }}>
+      <div className="flex gap-4">
         {action ? (
-          <button onClick={action.handler(id)} style={{ border: '1px solid' }}>
+          <button onClick={action.handler(id)} className="border-2">
             {action.title}
           </button>
         ) : null}

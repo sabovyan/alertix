@@ -1,6 +1,11 @@
 import type { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import Link from 'next/link';
-import { getStatus, getTitle, notionColors } from '../../helpers/notion.helper';
+import {
+  backgroundColors,
+  getStatus,
+  getTitle,
+  notionColors,
+} from '../../helpers/notion.helper';
 import { NotificationModal } from '../NotificationModal/NotificationModal';
 
 type Props = {
@@ -12,44 +17,30 @@ export function NotionPageCard({ page }: Props) {
 
   const status = getStatus(page.properties['Status']);
 
-  if (!page) {
-    return null;
-  }
+  const color: NonNullable<typeof status>['color'] =
+    status?.color ||
+    (notionColors.default as NonNullable<typeof status>['color']);
 
-  const bgColor = status?.color
-    ? notionColors[status?.color]
-    : notionColors.default;
+  const borderColor = notionColors[color];
+
+  const bgColor = backgroundColors[color];
 
   return (
     <div
-      style={{
-        borderColor: status?.color ? notionColors[status?.color] : 'inherit',
-        borderWidth: 1,
-        borderStyle: 'solid',
-        padding: '1em',
-        background: bgColor,
-      }}
+      className={`w-80 ${bgColor} border p-4 rounded-md ${borderColor} shadow-sm dark:shadow-sm flex flex-col gap-4`}
     >
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          marginBlockEnd: '1em',
-          width: '100%',
-        }}
-      >
+      <div className="flex flex-wrap gap-4 justify-between items-center">
         <Link href={`task/${page.id}`}>
-          <h3 key={title}>{title}</h3>
+          <h3>{title}</h3>
         </Link>
 
         <NotificationModal pageId={page.id} />
       </div>
 
       {status ? (
-        <div>{status.name}</div>
+        <div>
+          <strong>status: </strong> {status.name}
+        </div>
       ) : (
         <div>
           <span>
@@ -57,8 +48,13 @@ export function NotionPageCard({ page }: Props) {
           </span>
         </div>
       )}
-      <a target="_blank" href={page.url} rel="noreferrer">
-        {title} in Notion
+      <a
+        target="_blank"
+        href={page.url}
+        rel="noreferrer"
+        title="open in Notion"
+      >
+        {title} in Notion &#10138;
       </a>
     </div>
   );
