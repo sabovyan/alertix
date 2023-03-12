@@ -1,9 +1,18 @@
 import { Client } from '@notionhq/client';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
+function _fetch(input: RequestInfo | URL, init?: RequestInit | undefined) {
+  return fetch(input, {
+    ...init,
+    next: {
+      revalidate: 10,
+    },
+  });
+}
+
 export const notion = new Client({
   auth: process.env.NOTION_KEY,
-  fetch: fetch,
+  fetch: _fetch,
 });
 const database_id = process.env.NOTION_DATABASE_ID;
 
